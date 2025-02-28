@@ -1,16 +1,13 @@
 from pymongo import MongoClient
 import os
 
-# Load MongoDB connection URL from an environment variable or config
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://username:password@host:port/database")
+MONGO_URI = os.getenv("MONGO_URI")  # Get the URI from environment variables
 
-# Create MongoDB client
+if not MONGO_URI:
+    raise ValueError("MONGO_URI is not set. Please check your environment variables.")
+
 client = MongoClient(MONGO_URI)
-
-# Select the database (change 'your_database_name' to your actual DB name)
-db = client["your_database_name"]
-
-print("Connected to MongoDB:", db.name)
+db = client.get_database()
 
 # Define collections (equivalent to SQL tables)
 thumbnails = db["thumbnails"]
