@@ -12,6 +12,7 @@ class Config(object):
     QUO_IO_API_KEY = ""
     MAX_MESSAGE_LENGTH = 4096
     BOT_PWD = os.getenv("BOT_PWD", "")
+    port = int(os.environ.get("PORT", 8080))
     LOGGED_USER = []
     
     # Use environment variable instead of hardcoded URI
