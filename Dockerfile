@@ -14,8 +14,8 @@ COPY requirements.txt /requirements.txt
 # Installing Requirements
 RUN cd /
 RUN pip3 install -U -r requirements.txt
-RUN mkdir /TG-CONVERT-BOT
-WORKDIR /TG-CONVERT-BOT
+RUN mkdir /file
+WORKDIR /file
 
 # Running MessageSearchBot
 CMD ["python3", "bot.py"]
