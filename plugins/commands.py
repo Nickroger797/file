@@ -5,7 +5,8 @@ logger = logging.getLogger(__name__)
 
 import pyrogram
 from config import Config 
-from pyrogram import Client, filters, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from translation import Translation
 from Tools.Download import download
 
