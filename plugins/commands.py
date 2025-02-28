@@ -36,13 +36,13 @@ async def help(c, m):
 
 @Client.on_message(filters.command(["about"]))
 async def about(c, m):
-
-    await c.send_message(chat_id=m.chat.id,
-                         text=Translation.ABOUT,
-                         disable_web_page_preview=True,
-                         reply_to_message_id = m.id,
-                         parse_mode="HTML")
-
+    await c.send_message(
+        chat_id=m.chat.id,
+        text=Translation.ABOUT,
+        disable_web_page_preview=True,
+        reply_to_message_id = m.id,
+    )  # No parse_mode
+    
 @Client.on_message(filters.command(["converttovideo"]))
 async def video(c, m):
 
@@ -84,29 +84,33 @@ async def login(c, m):
         if (len(m.command) >= 2) & (m.from_user.id not in Config.LOGGED_USER) & (m.from_user.id not in Config.AUTH_USERS):
             _, password = m.text.split(" ", 1)
             if str(password) == str(Config.BOT_PWD):
-                await c.send_message(chat_id=m.chat.id,
-                                     text=Translation.SUCESS_LOGIN,
-                                     disable_web_page_preview=True,
-                                     reply_to_message_id = m.id,
-                                     parse_mode="Markdown")
+                await c.send_message(
+                    chat_id=m.chat.id,
+                    text=Translation.SUCESS_LOGIN,
+                    disable_web_page_preview=True,
+                    reply_to_message_id = m.id,
+                )  # No parse_mode
                 return Config.LOGGED_USER.append(m.from_user.id)
             if str(password) != str(Config.BOT_PWD):
-                await c.send_message(chat_id=m.chat.id,
-                                     text=Translation.WRONG_PWD,
-                                     disable_web_page_preview=True,
-                                     reply_to_message_id = m.id,
-                                     parse_mode="HTML")
+                await c.send_message(
+                    chat_id=m.chat.id,
+                    text=Translation.WRONG_PWD,
+                    disable_web_page_preview=True,
+                    reply_to_message_id = m.id,
+                )  # No parse_mode
 
         if (len(m.command) < 2) & (m.from_user.id not in Config.LOGGED_USER) & (m.from_user.id not in Config.AUTH_USERS):
-            await c.send_message(chat_id=m.chat.id,
-                                 text="Use this command for login to this bot. Semd the passwordin the format 👉`/login Bot password`.",
-                                 disable_web_page_preview=True,
-                                 reply_to_message_id = m.id,
-                                 parse_mode="HTML")
+            await c.send_message(
+                chat_id=m.chat.id,
+                text="Use this command for login to this bot. Semd the passwordin the format 👉`/login Bot password`.",
+                disable_web_page_preview=True,
+                reply_to_message_id = m.id,
+            )  # No parse_mode
 
         if (m.from_user.id in Config.LOGGED_USER)|(m.from_user.id in Config.AUTH_USERS):
-            await c.send_message(chat_id=m.chat.id,
-                                 text=Translation.EXISTING_USER,
-                                 disable_web_page_preview=True,
-                                 reply_to_message_id = m.id,
-                                 parse_mode="HTML")
+            await c.send_message(
+                chat_id=m.chat.id,
+                text=Translation.EXISTING_USER,
+                disable_web_page_preview=True,
+                reply_to_message_id = m.id,
+            )  # No parse_mode
