@@ -32,7 +32,7 @@ async def help(c, m):
         chat_id=m.chat.id,
         text=Translation.HELP,
         reply_to_message_id=m.id,
-        parse_mode="html"  
+        parse_mode="HTML"  
     )
 
 @Client.on_message(filters.command(["about"]))
@@ -42,7 +42,7 @@ async def about(c, m):
                          text=Translation.ABOUT,
                          disable_web_page_preview=True,
                          reply_to_message_id = m.id,
-                         parse_mode="html")
+                         parse_mode="HTML")
 
 @Client.on_message(filters.command(["converttovideo"]))
 async def video(c, m):
@@ -96,18 +96,18 @@ async def login(c, m):
                                      text=Translation.WRONG_PWD,
                                      disable_web_page_preview=True,
                                      reply_to_message_id = m.id,
-                                     parse_mode="html")
+                                     parse_mode="HTML")
 
         if (len(m.command) < 2) & (m.from_user.id not in Config.LOGGED_USER) & (m.from_user.id not in Config.AUTH_USERS):
             await c.send_message(chat_id=m.chat.id,
                                  text="Use this command for login to this bot. Semd the passwordin the format 👉`/login Bot password`.",
                                  disable_web_page_preview=True,
                                  reply_to_message_id = m.id,
-                                 parse_mode="html")
+                                 parse_mode="HTML")
 
         if (m.from_user.id in Config.LOGGED_USER)|(m.from_user.id in Config.AUTH_USERS):
             await c.send_message(chat_id=m.chat.id,
                                  text=Translation.EXISTING_USER,
                                  disable_web_page_preview=True,
                                  reply_to_message_id = m.id,
-                                 parse_mode="html")
+                                 parse_mode="HTML")
