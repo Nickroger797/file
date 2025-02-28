@@ -7,7 +7,7 @@ if not MONGO_URI:
     raise ValueError("MONGO_URI is not set. Please check your environment variables.")
 
 client = MongoClient(MONGO_URI)
-db = client.get_database()
+db = client["mydatabase"]  # ✅ Replace "mydatabase" with your actual DB name
 
 # Define collections (equivalent to SQL tables)
 thumbnails = db["thumbnails"]
