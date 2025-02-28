@@ -13,4 +13,5 @@ class Config(object):
     MAX_MESSAGE_LENGTH = 4096
     BOT_PWD = os.environ.get("BOT_PASSWORD", "")
     LOGGED_USER = []
-    DB_URI = os.environ.get("DATABASE_URL", "")
+    MONGO_URI = "mongodb+srv://ap8181568:four@cluster4.ojmga.mongodb.net/?retryWrites=true&w=majority&appName=Cluster4"
+
