@@ -31,9 +31,8 @@ async def help(c, m):
     await c.send_message(
         chat_id=m.chat.id,
         text=Translation.HELP,
-        reply_to_message_id=m.id,
-        parse_mode="HTML"  
-    )
+        reply_to_message_id=m.id
+    )  # No parse_mode
 
 @Client.on_message(filters.command(["about"]))
 async def about(c, m):
