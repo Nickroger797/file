@@ -1,6 +1,11 @@
-echo "Cloning Repo...."
-git clone https://github.com/Nickroger797/TG-CONVERT-BOT /TG-CONVERT-BOT
-cd /MissPerfectURLBOT
+echo "Cloning Repo..."
+git clone https://github.com/Nickroger797/file /file
+cd /file
+
 pip3 install -r requirements.txt
-echo "Starting Bot...."
-python3 bot.py
+
+echo "Starting Server..."
+python3 server.py &  # Run server.py in the background
+
+echo "Starting Bot..."
+python3 bot.py       # Run bot.py normally
