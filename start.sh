@@ -5,7 +5,8 @@ cd /file
 pip3 install -r requirements.txt
 
 echo "Starting Server..."
-python3 server.py &  # Run server.py in the background
+gunicorn --bind 0.0.0.0:8080 server:app &  # Run Flask using Gunicorn
 
 echo "Starting Bot..."
-python3 bot.py       # Run bot.py normally
+python3 bot.py  # Run bot normally
+
