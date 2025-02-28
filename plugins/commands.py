@@ -20,7 +20,7 @@ async def start(c, m):
 
     await c.send_message(chat_id=m.chat.id,
                          text=Translation.START.format(m.from_user.first_name, Config.USER_NAME),
-                         reply_to_message_id=m.message_id,
+                         reply_to_message_id = m.id,
                          reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("My Father 👨‍💻", url=my_father), InlineKeyboardButton("📌Support channel", url=support)]]))
     logger.info(f"{m.from_user.first_name} used start command")
 
@@ -31,7 +31,7 @@ async def help(c, m):
 
     await c.send_message(chat_id=m.chat.id,
                          text=Translation.HELP,
-                         reply_to_message_id=m.message_id,
+                         reply_to_message_id = m.id,
                          parse_mode="markdown")
 
 
@@ -41,7 +41,7 @@ async def about(c, m):
     await c.send_message(chat_id=m.chat.id,
                          text=Translation.ABOUT,
                          disable_web_page_preview=True,
-                         reply_to_message_id=m.message_id,
+                         reply_to_message_id = m.id,
                          parse_mode="markdown")
 
 @Client.on_message(filters.command(["converttovideo"]))
@@ -102,12 +102,12 @@ async def login(c, m):
             await c.send_message(chat_id=m.chat.id,
                                  text="Use this command for login to this bot. Semd the passwordin the format 👉`/login Bot password`.",
                                  disable_web_page_preview=True,
-                                 reply_to_message_id=m.message_id,
+                                 reply_to_message_id = m.id,
                                  parse_mode="markdown")
 
         if (m.from_user.id in Config.LOGGED_USER)|(m.from_user.id in Config.AUTH_USERS):
             await c.send_message(chat_id=m.chat.id,
                                  text=Translation.EXISTING_USER,
                                  disable_web_page_preview=True,
-                                 reply_to_message_id=m.message_id,
+                                 reply_to_message_id = m.id,
                                  parse_mode="markdown")
