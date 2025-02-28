@@ -11,7 +11,7 @@ class Config(object):
     HTTP_PROXY = os.environ.get("HTTP_PROXY", "")
     QUO_IO_API_KEY = ""
     MAX_MESSAGE_LENGTH = 4096
-    BOT_PASSWORD = os.environ.get("BOT_PASSWORD", "")
+    BOT_PWD = os.getenv("BOT_PWD", "")
     LOGGED_USER = []
     
     # Use environment variable instead of hardcoded URI
