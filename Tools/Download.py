@@ -20,11 +20,13 @@ from database.database import *
 #Download the media
 
 async def download(c, m):
-    send = await c.send_message(chat_id=m.chat.id,
-                                text=Translation.DOWNLOAD_START,
-                                reply_to_message_id=m.id  # Change message_id to id
-    logger.info(f"Downloading strated by {m.from_user.first_name}")
+    send = await c.send_message(
+        chat_id=m.chat.id,
+        text=Translation.DOWNLOAD_START,
+        reply_to_message_id=m.id  # message_id ko id se replace kar
+    )  # Yahan closing bracket missing thi
 
+    logger.info(f"Downloading started by {m.from_user.first_name}")
 
     download_location = Config.DOWNLOAD_LOCATION + "/"                                                               
     c_time = time.time()
