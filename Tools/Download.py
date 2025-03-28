@@ -22,7 +22,7 @@ from database.database import *
 async def download(c, m):
     send = await c.send_message(chat_id=m.chat.id,
                                 text=Translation.DOWNLOAD_START,
-                                reply_to_message_id=m.message_id)
+                                reply_to_message_id=m.id  # Change message_id to id
     logger.info(f"Downloading strated by {m.from_user.first_name}")
 
 
