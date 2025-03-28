@@ -6,7 +6,7 @@ class Config(object):
     API_HASH = os.environ.get("API_HASH", "05be4bb2e1e6806a2ffd23402079e23a")
     USER_NAME = os.environ.get("USER_NAME", "Codexownerr")
     AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "").split())
-    BANNED_USER = set(int(x) for x in os.environ.get("BANNED_USERS", "").split())
+    BANNED_USERS = set(map(int, os.environ.get("BANNED_USERS", "").split())) if os.environ.get("BANNED_USERS") else set()
     DOWNLOAD_LOCATION = "./DOWNLOADS"
     HTTP_PROXY = os.environ.get("HTTP_PROXY", "")
     QUO_IO_API_KEY = ""
